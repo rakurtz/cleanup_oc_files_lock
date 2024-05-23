@@ -32,7 +32,7 @@ db_config = {
 
 # Calculate the timestamp for 24 hours ago
 time_threshold = datetime.now() - timedelta(hours=time_delta_in_hours)
-
+time_threshold = f"{int(time_threshold.timestamp())}" # convert to unix timestamp as integer as string
 # Connect to the database
 conn = mysql.connector.connect(**db_config)
 cursor = conn.cursor()
